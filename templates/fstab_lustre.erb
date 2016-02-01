@@ -1,0 +1,7 @@
+<% if @mount_options.class == String -%>
+<%= @mount_options %>
+<% else -%>
+<% @mount_options.each do |mount_option| -%>
+<%= mount_option %>
+<% end -%>
+<% end -%>
