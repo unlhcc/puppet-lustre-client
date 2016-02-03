@@ -1,6 +1,5 @@
 class lustre_client (
-  $networks = params_lookup( 'networks' ),
-  ) inherits lustre::params {
+  ) {
 
     package { 'lustre-client':
         ensure => 'present',
