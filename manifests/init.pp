@@ -56,6 +56,9 @@ class lustre_client (
         target  => '/lustre/work',
     }
 
+    concat { '/etc/fstab':
+      ensure => present,
+    }
     concat::fragment { 'fstab_lustre':
         target  => '/etc/fstab',
         content  => template('lustre_client/fstab_lustre.erb'),
