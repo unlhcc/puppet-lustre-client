@@ -56,11 +56,15 @@ class lustre_client (
         target  => '/lustre/work',
     }
 
-    #concat { '/etc/fstab':
-    #  ensure => present,
-    #}
-    #concat::fragment { 'fstab_lustre':
-    #    target  => '/etc/fstab',
-    #    content  => template('lustre_client/fstab_lustre.erb'),
-    #}
+    mount { 'mds1':
+        name    => "/lustre",
+        ensure  => mounted,
+        device  => 'mds1.sandhills.hcc.unl.edu@tcp:/SHlustre',
+        fstype  => 'lustre',
+        options => 'defaults,_netdev,localflock',
+        dump    => 0,
+        pass    => 0,
+        remounts  => true,
+        target  => '/etc/fstab',
+    }
 }
