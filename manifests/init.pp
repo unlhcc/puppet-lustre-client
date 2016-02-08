@@ -1,5 +1,5 @@
 class lustre_client (
-  $mount_options = '',
+  
   ) {
 
     package { 'lustre-client':
