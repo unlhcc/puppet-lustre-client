@@ -1,5 +1,5 @@
 class lustre_client (
-  
+
   ) {
 
     package { 'lustre-client':
@@ -30,18 +30,18 @@ class lustre_client (
     #    source => 'puppet:///modules/lustre/lustre.rc.local',
     #}
 
-    service { 'lnet':
-        ensure     => running,
-        enable     => true,
-        hasrestart => true,
-        hasstatus  => true,
-        require    => [
-            Package['lustre-client-modules'],
-            Package['lustre-client'],
+    #service { 'lnet':
+    #    ensure     => running,
+    #    enable     => true,
+    #    hasrestart => true,
+    #    hasstatus  => true,
+    #    require    => [
+    #        Package['lustre-client-modules'],
+    #        Package['lustre-client'],
     #        File['lnet.rc'],
     #        File['lustre.conf'],
-        ],
-    }
+    #    ],
+    #}
 
     file { '/lustre':
         ensure => directory,
